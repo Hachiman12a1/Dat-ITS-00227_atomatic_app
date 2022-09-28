@@ -1,0 +1,15 @@
+.logo-container {
+  .logo-img {
+    a {
+      img {
+        width: 70px;
+        border-radius: 10px;
+      }
+
+      img:hover {
+        cursor: pointer;
+        opacity: 0.8;
+      }
+    }
+  }
+}

@@ -1,0 +1,146 @@
+@import "../../../data/color.scss";
+
+h2 {
+  color: $black;
+}
+.bodyTable {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  margin: 30px 0;
+  thead {
+    tr {
+      background: #f6f6f6;
+      color: $black;
+      th {
+        text-align: center;
+      }
+    }
+  }
+  tbody {
+    tr:hover {
+      background-color: #ccc;
+    }
+  }
+}
+
+th {
+  border: 1px solid #dddddd;
+  padding: 8px;
+}
+
+.table {
+  .action {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    button {
+      width: 34px;
+      height: 30px;
+      border: 1px solid $tim;
+      border-radius: 6px;
+      transition: all 0.25s ease-in-out;
+      &:hover {
+        cursor: pointer;
+        transform: translateY(-6px);
+        box-shadow: 1px 1px 20px $btnBlue;
+      }
+    }
+    .action-Eye {
+      svg {
+        color: $btnRed;
+      }
+    }
+    .action-Edit {
+      svg {
+        color: $btnBlue;
+      }
+    }
+    .action-Delete {
+      svg {
+        color: $starbuck;
+      }
+    }
+  }
+}
+.itemImg {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.searchTable {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+  .searchTable-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & input {
+      border: 1px solid $starbuckPink;
+      outline: none;
+      padding: 10px 120px 10px 10px;
+      border-radius: 2px;
+      // margin: 2px 0 2px 20px;
+      //   transition: all 0.2s linear;
+      color: $starbuckPink;
+      &:focus-within {
+        // transform: translateY(-4px);
+        border-color: $starbuckPink2;
+        box-shadow: 1px 1px 20px $btnRed;
+        color: $starbuckPink;
+      }
+    }
+    & .searchIcon {
+      padding: 10px 12px 10px 12px;
+      border-radius: 2px;
+      // margin: 2px 20px;
+      border: 1px solid $starbuckPink;
+      background: $starbuck;
+      color: $white;
+      //   transition: all 0.2s linear;
+      &:hover {
+        // transform: translateY(-4px);
+        border-color: $starbuck;
+        box-shadow: 1px 1px 20px $starbuck;
+        cursor: pointer;
+      }
+    }
+  }
+  .searchTable-sort {
+    display: flex;
+    align-items: center;
+    span {
+      color: #a2a3a3;
+      margin: 0 1rem 0 0;
+    }
+    select {
+      padding: 0.5rem;
+    }
+  }
+}
+
+.pagination {
+  margin: 10px 10px;
+  float: right;
+  .paginationBtn {
+    padding: 5px 10px;
+    margin: 0 2px;
+    border: 1px solid $starbuckPink2;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      cursor: pointer;
+      background: $starbuckPink;
+      color: $white;
+    }
+    Link {
+      button {
+      }
+    }
+  }
+}

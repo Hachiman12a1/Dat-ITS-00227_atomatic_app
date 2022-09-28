@@ -1,0 +1,27 @@
+.Detail-container {
+  padding: 20px;
+  & .Detail-post {
+    text-align: justify;
+
+    & .Detail-left {
+      position: relative;
+      width: 100%;
+      & .image-post {
+        position: absolute;
+        width: 100px;
+        border-radius: 5px;
+      }
+    }
+
+    & .Detail-right {
+      margin-left: 3rem;
+      & .title-post {
+        text-align: right;
+        font-size: 1.5rem;
+      }
+      & .content-post {
+        font-size: 1rem;
+      }
+    }
+  }
+}

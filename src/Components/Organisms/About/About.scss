@@ -1,0 +1,35 @@
+.About-container {
+  margin: 50px;
+  .About-header {
+  }
+  .About-body {
+    text-align: left;
+    .About-top {
+      font-size: 28px;
+
+      .About-icon {
+        margin-right: 24px;
+      }
+      .About-title {
+        position: relative;
+        &:after {
+          content: "";
+          display: block;
+          width: 150px;
+          position: absolute;
+          border-bottom: 5px solid #6266ea;
+          padding-top: 0.5em;
+          left: 0;
+        }
+      }
+    }
+
+    .About-bottom {
+      margin: 48px;
+      .About-description {
+        display : block;
+        max-width: 720px;
+      }
+    }
+  }
+}
