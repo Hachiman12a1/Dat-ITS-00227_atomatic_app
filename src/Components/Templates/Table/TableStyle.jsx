@@ -1,11 +1,11 @@
 import React, { useMemo, useState } from "react";
-import { AiOutlineSearch } from "react-icons/ai";
+import Search from "../Search/Search";
+import Sort from "../Sort/Sort";
 import useDebounce from "./../../../hooks/useDebounce";
 import "./Table.scss";
 
 const TableStyle = (props) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [order, setOrder] = useState("ASC");
 
   const { headers, Data, setData } = props;
 
@@ -34,66 +34,12 @@ const TableStyle = (props) => {
     });
   }, [Data, searchTerm]);
 
-  const onSortChange = (e) => {
-    const value = e.target.value;
-    if (value) {
-      if (order === "ASC") {
-        if (value === "id") {
-          const sorted = [...Data].sort((a, b) =>
-            a[value] > b[value] ? 1 : -1
-          );
-          setData(sorted);
-          setOrder("DESC");
-        } else {
-          const sorted = [...Data].sort((a, b) =>
-            a[value].toString().toLowerCase() >
-            b[value].toString().toLowerCase()
-              ? 1
-              : -1
-          );
-          setData(sorted);
-          setOrder("DESC");
-        }
-      }
-      if (order === "DESC") {
-        if (value === "id") {
-          const sorted = [...Data].sort((a, b) =>
-            a[value] < b[value] ? 1 : -1
-          );
-          setData(sorted);
-          setOrder("ASC");
-        } else {
-          const sorted = [...Data].sort((a, b) =>
-            a[value].toString().toLowerCase() <
-            b[value].toString().toLowerCase()
-              ? 1
-              : -1
-          );
-          setData(sorted);
-          setOrder("ASC");
-        }
-      }
-    }
-  };
-
   return (
     <>
       <div className="table">
         <div className="searchTable">
-          <div className="searchTable-item">
-            <input type="text" placeholder="Search..." onChange={debounce} />
-            <AiOutlineSearch className="searchIcon" />
-          </div>
-          <div className="searchTable-sort">
-            <span>Sort by: </span>
-            <select name="" id="" onChange={onSortChange}>
-              {headers.map((header) => (
-                <option key={header.field} value={`${header.field}`}>
-                  {header.header}
-                </option>
-              ))}
-            </select>
-          </div>
+          <Search Debounce={debounce} />
+          <Sort Headers={headers} Data = {Data} setData={setData}/>
         </div>
         <table className="bodyTable">
           <thead>

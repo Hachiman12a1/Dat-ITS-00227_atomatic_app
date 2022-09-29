@@ -18,6 +18,7 @@ const User = (props) => {
   // Call API
   const { data, totalPage, setData } = useFetch(id, "users");
 
+  // Get totalPage
   for (let i = 1; i <= totalPage; i++) {
     arrayPage.push(i);
   }
