@@ -1,10 +1,7 @@
-import React from "react";
-import { AiFillEye, AiOutlineSearch } from "react-icons/ai";
-import { BsFillArchiveFill, BsPencilFill } from "react-icons/bs";
+import React, { useMemo, useState } from "react";
+import { AiOutlineSearch } from "react-icons/ai";
+import useDebounce from "./../../../hooks/useDebounce";
 import "./Table.scss";
-import { useState } from "react";
-import { useMemo } from "react";
-import useDebounce from './../../../hooks/useDebounce';
 
 const TableStyle = (props) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -104,7 +101,6 @@ const TableStyle = (props) => {
               {headers.map((header) => {
                 return <th key={header.field}>{header.header}</th>;
               })}
-              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -112,30 +108,13 @@ const TableStyle = (props) => {
               <tr key={data.id}>
                 {headers.map((header) => (
                   <th key={header?.field}>
-                    {header?.field === "avatar" ? (
-                      <img
-                        className="itemImg"
-                        src={data[header?.field]}
-                        alt=""
-                      ></img>
+                    {header?.customFunction ? (
+                      header.customFunction(data)
                     ) : (
                       <span>{data[header.field]}</span>
                     )}
                   </th>
                 ))}
-                <th>
-                  <div className="action">
-                    <button className="action-Eye">
-                      <AiFillEye />
-                    </button>
-                    <button className="action-Edit">
-                      <BsPencilFill />
-                    </button>
-                    <button className="action-Delete">
-                      <BsFillArchiveFill />
-                    </button>
-                  </div>
-                </th>
               </tr>
             ))}
           </tbody>

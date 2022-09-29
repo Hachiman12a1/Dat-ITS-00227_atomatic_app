@@ -1,11 +1,6 @@
 import service from "./instance";
 
-export const getuser = (page) => {
-  const url = `/api/users?page=${page}`;
+export const getData = (page, namePage) => {
+  const url = `/api/${namePage}?page=${page}`;
   return service.get(url);
 };
-
-export const getresource = (page) => {
-  const url = `/api/unknown?page =${page}`;
-  return service.get(url);
-}
